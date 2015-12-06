@@ -1,0 +1,14 @@
+<div id="items">
+	<h2>This is the function template</h2>
+	<p>The content you see comes from data and a handlebars template.</p>
+	{{#if items}}
+		{{#each items}}
+		<div>
+			{{salutation}} {{target}}
+		</div>
+		{{/each}}
+	{{else}}
+	<div class="alert alert-info" role="alert">You have no salutations</div>
+	{{/if}}
+	<a href="#!/main">Go home</a>
+</div>

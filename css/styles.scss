@@ -1,0 +1,128 @@
+@mixin on($pageName){
+	&[class="#{$pageName}"]:not([class*=" "]){
+		@content;
+	}
+}
+@mixin and($pageName){
+	&.#{$pageName}[class*=" "]{
+		@content;
+	}
+}
+@mixin off($pageName){
+	&:not(.#{$pageName}){
+		@content
+	}
+}
+
+@import url(https://fonts.googleapis.com/css?family=Biryani:400,900);
+
+*{
+	transition:all 2s ease;
+}
+
+body,html{
+	height:100%;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+}
+
+body{
+	opacity:1;
+	background-image: linear-gradient(180deg, teal 0px, cyan 100%);
+	font-family: 'Biryani', sans-serif;
+	color:#fff;
+	text-align:center;
+	font-size:16px;
+	&[class*=" "]{
+		opacity:0.99;
+	}
+	
+	h1, h2, h3{
+		font-weight:900;
+		color:aqua;
+		font-size:3em;
+	}
+	
+	p{
+	font-size:1.5em
+	}
+
+	/*zero*/
+	@include on('zero'){
+		.welcome{
+			opacity:1
+		}
+	}
+	@include and('zero'){
+		.welcome{
+			opacity:0;
+		}
+	}
+	@include off('zero'){
+		.welcome{
+			display:none;
+		}
+	}
+
+	/*main*/
+	@include on('main'){
+		#main{
+			height:330px;
+			overflow:hidden
+		}
+	}
+	@include and('main'){
+		#main{
+			height:0;
+			overflow:hidden;
+		}
+	}
+	@include off('main'){
+		#main{
+			display:none;
+		}
+	}
+
+	/*detail*/
+	@include on('detail'){
+		#detail{
+			position:absolute;
+			width:50%;
+			left:25%;
+		}
+	}
+	@include and('detail'){
+		#detail{
+			position:absolute;
+			width:50%;
+			left:-50%;
+		}
+	}
+	@include off('detail'){
+		#detail{
+			display:none;
+		}
+	}
+
+	/*function-page*/
+	@include on('function-page'){
+		#items{
+			position:absolute;
+			left:0;
+			width:100%;
+		}
+	}
+	@include and('function-page'){
+		#items{
+			position:absolute;
+			left:100%;
+			width:100%;
+		}
+	}
+	@include off('function-page'){
+		#items{
+			display:none;
+		}
+	}
+}
