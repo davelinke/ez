@@ -2,7 +2,7 @@
 A jQuery based single page router that foucses on proper UI transitioning
 
 ez tries to fill the gaps when you'd like to create a single page application by relying on jQuery.
-If your app wants to rely on a more solid MV* structure you might want to check other libraries such as AngularJS, Backbone or Ember.
+If your app needs to rely on a precise MV* structure you might want to check other libraries such as AngularJS, Backbone or Ember instead.
 
 The routing is declared with a javascript object that governs the funcitoning of the application (see js/scripts.js for example).
 
